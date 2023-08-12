@@ -1,7 +1,13 @@
+using ErrorHandling.Filter;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new CustomHandlerExceptionFilterAttribute() { ErrorPage = "hata1" });
+
+});
 
 var app = builder.Build();
 
