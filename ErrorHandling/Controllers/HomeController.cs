@@ -16,7 +16,7 @@ namespace ErrorHandling.Controllers
             _logger = logger;
         }
 
-        [CustomerHandlerExceptionFilterAttribute]
+        [CustomHandlerExceptionFilterAttribute(ErrorPage = "hata1")]
         public IActionResult Index()
         {
             int value1 = 5;
@@ -27,6 +27,7 @@ namespace ErrorHandling.Controllers
             return View();
         }
 
+        [CustomHandlerExceptionFilterAttribute(ErrorPage = "hata2")]
         public IActionResult Privacy()
         {
             throw new FileNotFoundException();
