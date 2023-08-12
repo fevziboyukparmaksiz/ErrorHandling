@@ -47,7 +47,6 @@ app.UseStatusCodePages(async context =>
     await context.HttpContext.Response.WriteAsync("</body></html>");
 });
 
-
 app.UseExceptionHandler("/Home/Error");
 
 app.UseHttpsRedirection();

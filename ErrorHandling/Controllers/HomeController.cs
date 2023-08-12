@@ -1,4 +1,5 @@
-﻿using ErrorHandling.Models;
+﻿using ErrorHandling.Filter;
+using ErrorHandling.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace ErrorHandling.Controllers
             _logger = logger;
         }
 
+        [CustomerHandlerExceptionFilterAttribute]
         public IActionResult Index()
         {
             int value1 = 5;
@@ -39,6 +41,16 @@ namespace ErrorHandling.Controllers
 
             ViewBag.path = exception.Path;
             ViewBag.message = exception.Error.Message;
+            return View();
+
+        }
+        public IActionResult Hata1()
+        {
+            return View();
+
+        }
+        public IActionResult Hata2()
+        {
             return View();
         }
     }
